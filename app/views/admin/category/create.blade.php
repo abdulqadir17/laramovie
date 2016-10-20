@@ -39,7 +39,7 @@
                                 <input type="text" name="category_name" class="form-control" value="{{ Input::old('category_name') }}"> 
                                 @if($errors->first('category_name'))
                                   <span class="help-block">
-                                       {{ $errors->first('category_name') }}
+                                    {{ $errors->first('category_name') }}
                                   </span>
                                 @endif
                               </div>
