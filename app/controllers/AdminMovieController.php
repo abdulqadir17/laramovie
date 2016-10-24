@@ -9,7 +9,9 @@ class AdminMovieController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$movies = Movie::get();
+		return View::make('admin.movie.index')
+				->with('movies', $movies);
 	}
 
 
@@ -20,7 +22,7 @@ class AdminMovieController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('admin.movie.create');
 	}
 
 
@@ -31,7 +33,15 @@ class AdminMovieController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(),[
+			'title'  => 	'required'
+		]);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+		return Input::all();
 	}
 
 

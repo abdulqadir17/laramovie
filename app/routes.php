@@ -13,6 +13,10 @@
 
 	Route::group(['prefix' => 'admin'], function(){
 
+		Route::delete('category/{id}', 'AdminCategoryController@destroy');
+		Route::put('category/{id}/status', 'AdminCategoryController@status');
+		Route::put('category/{id}', 'AdminCategoryController@update');
+		Route::get('category/{id}/edit', 'AdminCategoryController@edit');
 		Route::post('category', 'AdminCategoryController@store');
 		Route::get('category/create', 'AdminCategoryController@create');
 		Route::get('category', 'AdminCategoryController@index');
