@@ -31,6 +31,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
     <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @yield('header.plugins')
+    <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="/assets/global/css/components-rounded.min.css" rel="stylesheet" id="style_components" type="text/css" />
     <link href="/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
@@ -206,6 +209,9 @@ License: You must have a valid license purchased only from themeforest(the above
       <script src="/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
       <script src="/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
       <!-- END CORE PLUGINS -->
+      <!-- BEGIN PAGE LEVEL PLUGINS -->
+      @yield('footer.plugins')
+      <!-- END PAGE LEVEL PLUGINS -->
       <!-- BEGIN THEME GLOBAL SCRIPTS -->
       <script src="/assets/global/scripts/app.min.js" type="text/javascript"></script>
       <!-- END THEME GLOBAL SCRIPTS -->
@@ -214,5 +220,6 @@ License: You must have a valid license purchased only from themeforest(the above
       <script src="/assets/layouts/layout2/scripts/demo.min.js" type="text/javascript"></script>
       <script src="/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
       <!-- END THEME LAYOUT SCRIPTS -->
+      @yield('footer.scripts')
     </body>
   </html>

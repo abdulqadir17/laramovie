@@ -22,7 +22,8 @@ class AdminMovieController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('admin.movie.create');
+		$categories = Category::lists('category_name', 'id');
+		return View::make('admin.movie.create', compact('categories'));
 	}
 
 
@@ -34,14 +35,28 @@ class AdminMovieController extends \BaseController {
 	public function store()
 	{
 		$validator = Validator::make(Input::all(),[
-			'title'  => 	'required'
+			'title'  => 	'required',
+			'category_ids'  => 	'required'
 		]);
 
 		if($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-		return Input::all();
+
+		$movie = Movie::create([
+			'title' => Input::get('title'),
+			'slug' => Str::slug(Input::get('title')),
+		]);
+
+		foreach (Input::get('category_ids')  as $id) {
+			DB::table('movie_category')->insert([
+				'movie_id' => $movie->id,
+				'category_id' => $id
+			]);
+		}
+		return Redirect::route('admin.movie.index')
+									->with('success', 'your record has been added successfully');
 	}
 
 
@@ -101,7 +116,17 @@ class AdminMovieController extends \BaseController {
 	 */
 	public function status($id)
 	{
-		//
-	}	
+		// return $id;
+		$movie = Movie::find($id);
+
+		$new_status = ($movie->movie_status == 1) ? 0 : 1 ;
+
+		$movie->update([
+			'movie_status' => $new_status
+		]);
+
+		return Redirect::route('admin.movie.index')
+				->with('success', 'your record has been added successfully');
+	}
 
 }

@@ -1,5 +1,10 @@
 @extends('admin.layouts.master')
 
+@section('header.plugins')
+    <link href="/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('page-title')
 	Movie
 @endsection
@@ -32,6 +37,12 @@
 							<div class="col-md-8 col-md-offset-2">
 								{{-- @include('admin.layouts._partials.errors') --}}
 								<div class="form-body">
+									<div class="form-group {{ ($errors->first('category_ids')) ? 'has-error' : null }} ">
+										{{ Form::label('Categories', null, ['class' => 'control-label']) }}
+										{{ Form::select('category_ids[]', $categories, null, ['multiple' => 'multiple', 'class' => 'form-control select2']) }}
+										<span class="help-block">{{ $errors->first('category_ids') }}</span>
+									</div>
+
 									<div class="form-group {{ ($errors->first('title')) ? 'has-error' : null }} ">
 										{{ Form::label('Title', null, ['class' => 'control-label']) }}
 										{{ Form::text('title', null, ['class' => 'form-control']) }}
@@ -107,4 +118,16 @@
 			<!-- END Portlet PORTLET-->
 		</div>
 	</div>
+@endsection
+
+@section('footer.plugins')  
+  <script src="/assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+@endsection
+
+@section('footer.scripts')
+<script>
+    $(document).ready(function() {
+      $(".select2").select2();
+    });
+</script>
 @endsection

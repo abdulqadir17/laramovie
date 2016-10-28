@@ -22,13 +22,13 @@
 		Route::get('category', 'AdminCategoryController@index');
 
 		Route::resource('person', 'AdminPersonController');
-		Route::post('person/{person}/status', [
+		Route::put('person/{person}/status', [
 				'as' =>	'admin.person.status',
 				'uses' =>	'AdminPersonController@status'
 		]);
 
 		Route::resource('movie', 'AdminMovieController');
-		Route::post('person/{movie}/status', [
+		Route::put('movie/{movie}/status', [
 				'as' =>	'admin.movie.status',
 				'uses' =>	'AdminMovieController@status'
 		]);
