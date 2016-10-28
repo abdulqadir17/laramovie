@@ -9,7 +9,7 @@ class AdminMovieController extends \BaseController {
 	 */
 	public function index()
 	{
-		$movies = Movie::get();
+		$movies = Movie::with('categories')->get();
 		return View::make('admin.movie.index')
 				->with('movies', $movies);
 	}
@@ -126,7 +126,7 @@ class AdminMovieController extends \BaseController {
 		]);
 
 		return Redirect::route('admin.movie.index')
-				->with('success', 'your record has been added successfully');
+				->with('success', 'your status has been update successfully');
 	}
 
 }

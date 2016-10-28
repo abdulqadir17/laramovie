@@ -46,7 +46,13 @@
 							<tr>
 								<td>{{ $movie->id }}</td>
 								<td>{{ $movie->title }}</td>
-								<td>category</td>
+								<td>
+									<ul>
+										@foreach ($movie->categories as $category)
+											<li>{{ $category->category_name }}</li>
+										@endforeach
+									</ul>
+								</td>
 								<td>actor</td>
 								<td class="text-center">
 									<form action="{{ route('admin.movie.status', $movie->id) }}" method="POST">
