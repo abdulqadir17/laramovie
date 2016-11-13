@@ -9,7 +9,8 @@ class AdminPersonController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$persons = Person::get();
+		return View::make('admin.person.index', compact('persons'));
 	}
 
 
@@ -20,7 +21,7 @@ class AdminPersonController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('admin.person.create');
 	}
 
 
@@ -31,7 +32,7 @@ class AdminPersonController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		return Input::all();
 	}
 
 

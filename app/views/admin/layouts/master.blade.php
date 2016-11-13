@@ -156,6 +156,12 @@ License: You must have a valid license purchased only from themeforest(the above
                   <span class="title">Movie</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.person.index') }}" class="nav-link nav-toggle">
+                  <i class="icon-layers"></i>
+                  <span class="title">Person</span>
+                </a>
+              </li>
             </ul>
             <!-- END SIDEBAR MENU -->
           </div>
