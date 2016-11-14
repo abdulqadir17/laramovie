@@ -44,8 +44,8 @@ class AdminPersonController extends \BaseController {
 		if(Input::hasFile('original_poster'))
 		{
 			$file = Input::file('original_poster');
-			$filename = md5($file->getClientOrignalName() . time() . "." . $file->getClientOrignalExtension() );
-			$file->move('uploads/person', $filename);
+			$filename = md5($file->getClientOriginalName() . time()) . "." . $file->getClientOriginalExtension();
+			$file->move('uploads/person/', $filename);
 		}
 
 		Person::Create([
