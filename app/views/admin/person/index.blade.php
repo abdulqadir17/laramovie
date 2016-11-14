@@ -31,8 +31,8 @@
 						<thead class="flip-content">
 							<tr>
 								<th>ID</th>
-								<th>Category</th>
-								<th>Parent ID</th>
+								<th>Person Name</th>
+								<th>Fullname</th>
 								<th class="text-center">Status</th>
 								<th class="text-center"></th>
 							</tr>
@@ -41,12 +41,12 @@
 							@foreach($persons as $person)
 							<tr>
 								<td>{{ $person->id }}</td>
-								<td>{{ $person->category_name }}</td>
-								<td>{{ $person->parent_id }}</td>
+								<td>{{ $person->person_name }}</td>
+								<td>{{ $person->fullname }}</td>
 								<td class="text-center">
-									<form action="/admin/category/{{ $category->id }}/status" method="POST">
+									<form action="{{ route('admin.person.status', $person->id) }}" method="POST">
 										<input type="hidden" name="_method" value="PUT">
-										@if($category->category_status == 1)
+										@if($person->person_status == 1)
 											<button type="submit" class="btn btn-success btn-xs">Active</button>
 										@else	
 											<button type="submit" class="btn btn-danger btn-xs">Deactive</button>
@@ -57,7 +57,7 @@
 								<td class="text-center">
 									<form action="{{ route('admin.person.destroy', $person->id) }}" method="POST">
 										<input type="hidden" name="_method" value="DELETE">
-										<a href="/admin/category/{{ $category->id }}/edit"
+										<a href="/admin/category/{{ $person->id }}/edit"
 											class="btn btn-outline btn-circle btn-sm purple">
 										<i class="fa fa-edit"></i> Edit </a>
 										<button type="submit" class="btn btn-outline btn-circle dark btn-sm red">

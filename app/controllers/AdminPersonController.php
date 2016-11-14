@@ -32,7 +32,30 @@ class AdminPersonController extends \BaseController {
 	 */
 	public function store()
 	{
-		return Input::all();
+		$validaor = Validator::make(Input::all(),[
+			'person_name' => 'required' 
+		]);
+
+		if($validaor->fails())
+		{
+			return Redirect::back()->withErrors($validaor)->withInput();
+		}
+		$filename = null;
+		if(Input::hasFile('original_poster'))
+		{
+			$file = Input::file('original_poster');
+			$filename = md5($file->getClientOrignalName() . time() . "." . $file->getClientOrignalExtension() );
+			$file->move('uploads/person', $filename);
+		}
+
+		Person::Create([
+			'person_name' => Input::get('person_name'),
+			'slug' => Str::slug(Input::get('person_name')),
+			'fullname' => Input::get('fullname'),
+			'bio' => Input::get('bio'),
+			'original_poster' => $filename
+		]);
+		return Redirect::route('admin.person.index');
 	}
 
 
@@ -92,7 +115,7 @@ class AdminPersonController extends \BaseController {
 	 */
 	public function status($id)
 	{
-		//
+		echo 'status ' . $id;
 	}
 
 

@@ -27,7 +27,7 @@
 				</div>
 				<div class="portlet-body form">
 					<!-- BEGIN FORM-->
-					{{ Form::open(['route' => 'admin.person.store', 'method' => 'POST', ]) }}
+					{{ Form::open(['route' => 'admin.person.store', 'method' => 'POST', 'files' => true ]) }}
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2">
 								{{-- @include('admin.layouts._partials.errors') --}}
@@ -60,23 +60,13 @@
 									</div>
 
 									<div class="form-group">
+										{{ Form::label('Death Date', null, ['class' => 'control-label']) }}
+										{{ Form::text('death_date', null, ['class' => 'form-control']) }}
+									</div>
+
+									<div class="form-group">
 										{{ Form::label('Death Place', null, ['class' => 'control-label']) }}
 										{{ Form::text('death_place', null, ['class' => 'form-control']) }}
-									</div>
-
-									<div class="form-group">
-										{{ Form::label('Poster', null, ['class' => 'control-label']) }}
-										{{ Form::text('original_poster', null, ['class' => 'form-control']) }}
-									</div>
-
-									<div class="form-group">
-										{{ Form::label('Votes', null, ['class' => 'control-label']) }}
-										{{ Form::text('votes', null, ['class' => 'form-control']) }}
-									</div>
-
-									<div class="form-group">
-										{{ Form::label('Rated', null, ['class' => 'control-label']) }}
-										{{ Form::text('rated', null, ['class' => 'form-control']) }}
 									</div>
 
 									<div class="form-group">
