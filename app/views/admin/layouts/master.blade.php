@@ -121,44 +121,22 @@ License: You must have a valid license purchased only from themeforest(the above
                   <span class="title">Dashboard</span>
                   <span class="arrow"></span>
                 </a>
-                <ul class="sub-menu">
-                  <li class="nav-item start ">
-                    <a href="index.html" class="nav-link ">
-                      <i class="icon-bar-chart"></i>
-                      <span class="title">Dashboard 1</span>
-                    </a>
-                  </li>
-                  <li class="nav-item start ">
-                    <a href="dashboard_2.html" class="nav-link ">
-                      <i class="icon-bulb"></i>
-                      <span class="title">Dashboard 2</span>
-                      <span class="badge badge-success">1</span>
-                    </a>
-                  </li>
-                  <li class="nav-item start ">
-                    <a href="dashboard_3.html" class="nav-link ">
-                      <i class="icon-graph"></i>
-                      <span class="title">Dashboard 3</span>
-                      <span class="badge badge-danger">5</span>
-                    </a>
-                  </li>
-                </ul>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {{ (Request::is('admin/category/*') || Request::is('admin/category') ? 'active' : null) }}">
                 <a href="/admin/category" class="nav-link nav-toggle">
                   <i class="icon-layers"></i>
                   <span class="title">Category</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {{ (Request::is('admin/movie/*')) || Request::is('admin/movie') ? 'active' : null }} ">
                 <a href="/admin/movie" class="nav-link nav-toggle">
-                  <i class="icon-layers"></i>
+                  <i class="icon-film"></i>
                   <span class="title">Movie</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {{ (Request::is('admin/person/*') || Request::is('admin/person') ? 'active' : null ) }} ">
                 <a href="{{ route('admin.person.index') }}" class="nav-link nav-toggle">
-                  <i class="icon-layers"></i>
+                  <i class="icon-users"></i>
                   <span class="title">Person</span>
                 </a>
               </li>
