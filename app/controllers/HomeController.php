@@ -15,9 +15,10 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+		// return SiteOption::lists('option_value', 'option_name');
+		return View::make('front.home.index');
 	}
 
 }
