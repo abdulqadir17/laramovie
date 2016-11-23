@@ -2,10 +2,7 @@
 
 @section('content')
 
-{{-- {{ getSiteOptionByKey('admin_email') }} 
-{{ getSiteOptionByKey('admin_email') }} --}}
-
-  
+@foreach ($movies as $movie)
   <div>
     <div class="uk-overlay uk-overlay-hover">
       <img src="/front_assets/img/placeholder.png" alt="Image" >
@@ -14,7 +11,7 @@
     </div>
     <div class="uk-panel" >
       
-      <h5 class="uk-panel-title">Media title goes here</h5>
+      <h5 class="uk-panel-title">{{ $movie->title }}</h5>
       <p>
         <span class="rating">
           <i class="uk-icon-star"></i>
@@ -26,6 +23,7 @@
         <span class="uk-float-right">2016</span>
       </p>
     </div>
-  </div>  
+  </div>
+@endforeach
 
 @endsection

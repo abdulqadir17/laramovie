@@ -17,8 +17,8 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		// return SiteOption::lists('option_value', 'option_name');
-		return View::make('front.home.index');
+		$movies = Movie::paginate(6);
+		return View::make('front.home.index', compact('movies'));
 	}
 
 }
