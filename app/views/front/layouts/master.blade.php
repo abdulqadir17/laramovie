@@ -140,18 +140,7 @@
                         <div class="uk-grid-width-small-1-3 uk-grid-width-medium-1-4 uk-grid-width-large-1-5" data-uk-grid="{gutter: 20}">
                             @yield('content')
                         </div>
-                        <div class="uk-margin-large-top uk-margin-bottom">
-                            <ul class="uk-pagination">
-                                <li class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>
-                                <li class="uk-active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><span>...</span></li>
-                                <li><a href="#">20</a></li>
-                                <li><a href="#"><i class="uk-icon-angle-double-right"></i></a></li>
-                            </ul>
-                        </div>
+                        @yield('pagination')
                     </div>
                 </div>
             </div>

@@ -26,6 +26,7 @@ return array(
 	|
 	*/
 
-	'pagination' => 'pagination::slider-3',
+	'pagination' => 'front.layouts.pagination',
+	// 'pagination' => 'pagination::slider-3',
 
 );
